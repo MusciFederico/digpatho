@@ -1,33 +1,94 @@
+/* globals.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --foreground-rgb: 28, 28, 30;
+  /* Dark gray for text */
+  --background-start-rgb: 245, 246, 250;
+  /* Light gray-blue */
+  --background-end-rgb: 225, 228, 234;
+  /* Slightly darker gray-blue */
+  --accent-rgb: 34, 150, 243;
+  /* Scientific blue for accents */
+  --secondary-accent-rgb: 39, 174, 96;
+  /* A calming green for secondary accents */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --foreground-rgb: 240, 240, 245;
+    /* Light gray for text */
+    --background-start-rgb: 18, 18, 20;
+    /* Dark gray for background */
+    --background-end-rgb: 28, 28, 30;
+    /* Slightly lighter dark gray */
+    --accent-rgb: 58, 123, 213;
+    /* Muted blue for dark mode */
+    --secondary-accent-rgb: 46, 139, 87;
+    /* Darker green for secondary accents */
   }
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
+  background: linear-gradient(to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+}
+
+@layer components {
+  .btn-primary {
+    background-color: rgb(var(--accent-rgb));
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.375rem;
+    text-align: center;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    background-color: rgba(var(--accent-rgb), 0.85);
+  }
+
+  .btn-secondary {
+    background-color: rgb(var(--secondary-accent-rgb));
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.375rem;
+    text-align: center;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-secondary:hover {
+    background-color: rgba(var(--secondary-accent-rgb), 0.85);
+  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .shadow-card {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .max-w-card {
+    max-width: 20rem;
+  }
+
+  .text-accent {
+    color: rgb(var(--accent-rgb));
+  }
+
+  .border-accent {
+    border-color: rgb(var(--accent-rgb));
   }
 }

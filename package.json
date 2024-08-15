@@ -6,19 +6,25 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "docker:build": "docker build -t digpatho-frontend .",
+    "docker:run": "docker run -p 3000:3000 digpatho-frontend"
   },
   "dependencies": {
+    "jspdf": "^2.5.1",
+    "lucide-react": "^0.427.0",
+    "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.2.5"
+    "sweetalert2": "^11.12.4",
+    "sweetalert2-react-content": "^5.0.7"
   },
   "devDependencies": {
-    "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "postcss": "^8",
-    "tailwindcss": "^3.4.1"
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
   }
 }
